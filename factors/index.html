@@ -2,6 +2,7 @@
 	<head>
 		<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
 		<script src = "js/defaults.js"></script>
+		<script src = "js/bestFit.js"></script>
 		<script src = "js/factors.js"></script>
 		<style>
 			body{
@@ -13,13 +14,53 @@
 				margin-left:auto;
 				margin-right:auto;
 			}
+			.panel {
+				width:50%;
+				margin-left:auto;
+				margin-right:auto;
+				text-align:center;
+			}
+			h1{
+				text-align:center;
+				margin-bottom:0px;
+			}
+			.page{
+				margin:0;
+				height:100%;
+				width:100%;
+				/*overflow:hidden;*/
+			}
+			p{
+				margin-top:0px;
+				margin-bottom:0px;
+			}
 		</style>
 	</head>
 	<body>
-		<div class = "chartContainer">
-			<canvas id="myChart"></canvas>
+		<div class = "page">
+			<h1>Number versus Factors</h1>
+			<div class = "panel">
+				<p>These three graphs shows how the number of factors of a number increases. The white line is a linear regression on the data.</p>
+			</div>
+			<div class = "chartContainer">
+				<canvas id="chart1"></canvas>
+			</div>
+			<script>var ctx1 = document.getElementById("chart1").getContext("2d");</script>
+			<script>graphFactors(25, ctx1)</script>
 		</div>
-		<script>var ctx = document.getElementById("myChart").getContext("2d");</script>
-		<script>graphFactors()</script>
+		<div class = "page">
+			<div class = "chartContainer">
+				<canvas id="chart2"></canvas>
+			</div>
+			<script>var ctx2 = document.getElementById("chart2").getContext("2d");</script>
+			<script>graphFactors(50, ctx2)</script>
+		</div>
+		<div class = "page">
+			<div class = "chartContainer">
+				<canvas id="chart3"></canvas>
+			</div>
+			<script>var ctx3 = document.getElementById("chart3").getContext("2d");</script>
+			<script>graphFactors(100, ctx3)</script>
+		</div>
 	</body>
 </html>

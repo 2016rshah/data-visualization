@@ -1,8 +1,7 @@
-function graphFactors(){
-	var numDataPoints = 12;
+function graphFactors(numDataPoints, ctx){
 	var xAxis = [];
 	var yAxis = [];
-	for(var i = 0; i<50; i++){
+	for(var i = 1; i<=numDataPoints; i++){
 		xAxis.push(i);
 		yAxis.push(numFactors(i));
 	}
@@ -18,11 +17,21 @@ function graphFactors(){
 	            pointHighlightFill: "#fff",
 	            pointHighlightStroke: "rgba(151,187,205,1)",
 	            data: yAxis
+	        }, 
+	        {
+	            label: "Best fit",
+	            fillColor: "rgba(220,220,220,0.2)",
+	            strokeColor: "rgba(220,220,220,1)",
+	            pointColor: "rgba(220,220,220,1)",
+	            pointStrokeColor: "#fff",
+	            pointHighlightFill: "#fff",
+	            pointHighlightStroke: "rgba(220,220,220,1)",
+	            data: bestFit(xAxis, yAxis)[1]
 	        }
 	    ]
 	};
 	var options = {
-		bezierCurve : true
+		bezierCurve : false
 	};
 	var myLineChart = new Chart(ctx).Line(data, options);
 }
