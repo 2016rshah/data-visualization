@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>Pi</title>
+		<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
+		<script src = "js/defaults.js"></script>
+		<script src = "js/bestFit.js"></script>
+		<script src = "js/pi.js"></script>
+		<style>
+			body{
+				background-color:rgb(218, 223, 225);
+			}
+			.chartContainer{
+				width:90%;
+				height:90%;
+				margin-left:auto;
+				margin-right:auto;
+			}
+			.panel {
+				width:50%;
+				margin-left:auto;
+				margin-right:auto;
+				text-align:center;
+			}
+			h1{
+				text-align:center;
+				margin-bottom:0px;
+			}
+			.page{
+				margin:0;
+				height:100%;
+				width:100%;
+				/*overflow:hidden;*/
+			}
+			p{
+				margin-top:0px;
+				margin-bottom:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "page">
+			<h1>N versus Nth Digit of Pi</h1>
+			<div class = "panel">
+				<p>These three graphs shows the nth digit of pi. The line is a linear regression on the data.</p>
+			</div>
+			<div class = "chartContainer">
+				<canvas id="chart1"></canvas>
+			</div>
+			<script>var ctx1 = document.getElementById("chart1").getContext("2d");</script>
+			<script>graphPi(25, ctx1)</script>
+		</div>
+		<div class = "page">
+			<div class = "chartContainer">
+				<canvas id="chart2"></canvas>
+			</div>
+			<script>var ctx2 = document.getElementById("chart2").getContext("2d");</script>
+			<script>graphPi(50, ctx2)</script>
+		</div>
+		<div class = "page">
+			<div class = "chartContainer">
+				<canvas id="chart3"></canvas>
+			</div>
+			<script>var ctx3 = document.getElementById("chart3").getContext("2d");</script>
+			<script>graphPi(100, ctx3)</script>
+		</div>
+	</body>
+</html>
